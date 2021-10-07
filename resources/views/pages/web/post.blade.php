@@ -16,6 +16,7 @@
                 $link_1 = 'Newsletter';
                 $link_2 = 'Newsletter';
                 $company = \App\Models\Company::where('uploaded_by', $data[0]->uploaded_by)->first();
+                $category = $data[0]->category;
             @endphp
             @section('content')
                 <livewire:hero-section :heading="$heading" :paragraph="$paragraph" />
@@ -32,52 +33,87 @@
                     </nav>
                 </div>
                 <div class="container">
-                    <div class="card rounded-0 mb-5">
-                        <div class="card-body">
-                            @if ($company == null)
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <div class="card rounded-0 mb-5">
+                                <div class="card-body">
+                                    @if ($company == null)
 
-                            @else
-                                <a href="{{ $company->url }}"
-                                    class="text-decoration-none text-danger fs-20 fw-500">{{ $company->name }}</a>
-                            @endif
-                            <h2>{{ $data[0]->title }}</h2>
-                            <div>
-                                <p class="badge rounded-pill bg-danger">{{ $data[0]->work_region }}</p>
-                                @if ($data[0]->fully_remote == 'no')
-                                    <p class="badge rounded-pill bg-danger">Not remote</p>
-                                @else
-                                    <p class="badge rounded-pill bg-danger">Fully remote</p>
-                                @endif
-                                <p class="badge rounded-pill bg-white text-dark">
-                                    {{ \Carbon\Carbon::parse($data[0]->created_at)->format('d M Y') }}
-                                </p>
-                            </div>
-                            <div class="mt-3">
-                                <img class="w-100" style="max-height: 270px; object-fit:cover;"
-                                    src="{{ $data[0]->logo }}" alt="company logo">
-                            </div>
-                            <div class="mt-3">
-                                <div>
-                                    <h3>Job Type</h3>
-                                    <p class="fw-500 text-dark">{{ $data[0]->type }}</p>
-                                </div>
-                                <div class="mt-3">
-                                    <h3>Job Description</h3>
-                                    <p class="fw-500 text-dark">{{ $data[0]->description }}</p>
-                                </div>
-                                <div class="mt-3">
-                                    <a href="{{ $data[0]->url }}" class="btn btn-danger rounded-0">Apply For Job</a>
+                                    @else
+                                        <a href="{{ $company->url }}"
+                                            class="text-decoration-none text-danger fs-20 fw-500">{{ $company->name }}</a>
+                                    @endif
+                                    <h2>{{ $data[0]->title }}</h2>
+                                    <div>
+                                        <p class="badge rounded-pill bg-danger">{{ $data[0]->work_region }}</p>
+                                        @if ($data[0]->fully_remote == 'no')
+                                            <p class="badge rounded-pill bg-danger">Not remote</p>
+                                        @else
+                                            <p class="badge rounded-pill bg-danger">Fully remote</p>
+                                        @endif
+                                        <p class="badge rounded-pill bg-white text-dark">
+                                            {{ \Carbon\Carbon::parse($data[0]->created_at)->format('d M Y') }}
+                                        </p>
+                                    </div>
+                                    <div class="mt-3">
+                                        <img class="w-100" style="max-height: 270px; object-fit:cover;"
+                                            src="{{ $data[0]->logo }}" alt="company logo">
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="row">
+                                            <div class="col-lg-6 mb-4">
+                                                <h3>Education Level</h3>
+                                                <p class="fw-500 text-dark">{{ $data[0]->education_level }}</p>
+                                            </div>
+                                            <div class="col-lg-6 mb-4">
+                                                <h3>Experience Level</h3>
+                                                <p class="fw-500 text-dark">{{ $data[0]->experience_level }}</p>
+                                            </div>
+                                            <div class="col-lg-6 mb-4">
+                                                <h3>Job Type</h3>
+                                                <p class="fw-500 text-dark">{{ $data[0]->type }}</p>
+                                            </div>
+                                            <div class="col-lg-6 mb-4">
+                                                <h3>Salary Estimate</h3>
+                                                <p class="fw-500 text-dark">Rs. {{ $data[0]->salary }}</p>
+                                            </div>
+                                            <div class="col-lg-6 mb-4">
+                                                <h3>Remote Job ?</h3>
+                                                @if($data[0]->fully_remote == 'no')
+                                                    <p class="fw-500 text-dark">{{ $data[0]->fully_remote }},</p>
+                                                    <p class="fw-500 text-dark">Work Region <br /><span class="text-danger">{{ $data[0]->work_region }}</span></p>
+                                                @else
+                                                    <p class="fw-500 text-dark">{{ $data[0]->fully_remote }}</p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="mt-2">
+                                            <h3>Job Description</h3>
+                                            <p class="fw-500 text-dark">{{ $data[0]->description }}</p>
+                                        </div>
+                                        <div class="mt-3">
+                                            <a href="{{ $data[0]->url }}" class="btn btn-danger rounded-0">Apply For
+                                                Job</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-5">
+                            <livewire:news-letter />
+                        </div>
+                    </div>
+                    <div>
+                        <livewire:related-job :category="$category" />
                     </div>
                 </div>
-                <livewire:news-letter />
+
             @stop
         @elseif ($url[0] == 'blog')
             @php
                 $page = $url[1];
                 $data = \App\Models\Blog::where('slug', $page)->get();
+                $postCategory = $data[0]->category;
             @endphp
             @section('content')
                 <div class="container mt-5">
@@ -93,27 +129,36 @@
                     </nav>
                 </div>
                 <div class="container">
-                    <div class="card rounded-0 mb-5">
-                        <div class="card-body">
-                            <div>
-                                <img class="w-100" style="max-height: 270px; object-fit:cover;"
-                                    src="{{ $data[0]->thumbnail }}" alt="blog post thumbnail">
-                            </div>
-                            <div>
-                                <h3 class="h3">{{ $data[0]->title }}</h3>
-                                <div class="d-flex align-items-center">
-                                    <p class="m-0 my-3 fw-500 me-3">
-                                        {{ \Carbon\Carbon::parse($data[0]->created_at)->format('M d Y') }}</p>
-                                    <p class="badge bg-danger">{{ $data[0]->category }}</p>
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <div class="card rounded-0 mb-5">
+                                <div class="card-body">
+                                    <div>
+                                        <img class="w-100" style="max-height: 270px; object-fit:cover;"
+                                            src="{{ $data[0]->thumbnail }}" alt="blog post thumbnail">
+                                    </div>
+                                    <div>
+                                        <h3 class="h3">{{ $data[0]->title }}</h3>
+                                        <div class="d-flex align-items-center">
+                                            <p class="m-0 my-3 fw-500 me-3">
+                                                {{ \Carbon\Carbon::parse($data[0]->created_at)->format('M d Y') }}</p>
+                                            <p class="badge bg-danger">{{ $data[0]->category }}</p>
+                                        </div>
+                                        <div class="m-0">
+                                            {{ $data[0]->description }}
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="m-0">
-                                    {{ $data[0]->description }}
-                                </div>
                             </div>
+                            <div class="mb-5">
+                                <livewire:related-blog-post :category="$postCategory" />
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <livewire:news-letter />
                         </div>
                     </div>
                 </div>
-                <livewire:news-letter />
             @stop
         @elseif ($url[0] == 'company')
             @php

@@ -19,6 +19,9 @@ class Job extends Model
         'work_region',
         'url',
         'description',
+        'salary',
+        'experience_level',
+        'education',
         'uploaded_by',
         'status'
     ];

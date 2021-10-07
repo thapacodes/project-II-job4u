@@ -17,7 +17,6 @@ class CreateLearningPortalsTable extends Migration
             $table->id();
             $table->string('thumbnail');
             $table->string('title');
-            $table->string('slug')->unique();
             $table->string('category');
             $table->string('url');
             $table->string('status')->nullable();

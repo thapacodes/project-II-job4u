@@ -12,7 +12,17 @@ class BlogPostCard extends Component
     public $search;
     public $category;
 
+    protected $queryString = ['search' => ['except'=>'']];
+
     use WithPagination;
+
+    public function updatedSearch() {
+        $this->resetPage();
+    }
+
+    public function updatedCategory() {
+        $this->resetPage();
+    }
 
     public function render()
     {

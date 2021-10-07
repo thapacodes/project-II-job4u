@@ -57,9 +57,19 @@
                     </section>
                 @endif
             @else
-                <script>
-                    window.location = "{{ route('login') }}";
-                </script>
+                <section class="container mb-5">
+                    <div class="card rounded-0">
+                        <div class="card-body">
+                            <h3>You must login in order to post a job</h3>
+                            <p class="m-0 text-muted fs-20 fw-500 mb-3">Don't have an account ? <a
+                                    href="{{ env('APP_URL') }}/register"
+                                    class="text-danger text-decoration-none">Register</a></p>
+                            <div class="btn-group">
+                                <a href="{{ route('login') }}" class="btn btn-danger">Login First</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             @endif
             <livewire:news-letter />
         @stop
@@ -85,16 +95,27 @@
             <livewire:bread-crumb-second-level :link_1="$link_1" />
             <livewire:job4u-faq />
         @stop
-    @elseif($page == 'search' || $page == 'job')
+    @elseif($page == 'search')
         @php
             $heading = 'Search For Job Listing';
             $paragraph = '';
-            $link_1 = 'Advance Search';
+            $link_1 = 'Search';
         @endphp
         @section('content')
             <livewire:hero-section :heading="$heading" :paragraph="$paragraph" />
             <livewire:bread-crumb-second-level :link_1="$link_1" />
             <livewire:advance-search />
+        @stop
+    @elseif($page == 'job')
+        @php
+            $heading = 'Browse Job Listing';
+            $paragraph = '';
+            $link_1 = 'Job';
+        @endphp
+        @section('content')
+            <livewire:hero-section :heading="$heading" :paragraph="$paragraph" />
+            <livewire:bread-crumb-second-level :link_1="$link_1" />
+            <livewire:job-listing />
         @stop
     @elseif($page == 'all-companies')
         @php
@@ -117,6 +138,17 @@
             <livewire:hero-section :heading="$heading" :paragraph="$paragraph" />
             <livewire:bread-crumb-second-level :link_1="$link_1" />
             <livewire:contact-form />
+        @stop
+    @elseif($page == 'learning-portal')
+        @php
+            $heading = 'Job4u Learning Portal';
+            $paragraph = '';
+            $link_1 = 'Learning Portal';
+        @endphp
+        @section('content')
+            <livewire:hero-section :heading="$heading" :paragraph="$paragraph" />
+            <livewire:bread-crumb-second-level :link_1="$link_1" />
+            <livewire:learning-portal-page />
         @stop
     @endif
 

@@ -24,6 +24,9 @@ class CreateJobsTable extends Migration
             $table->string('work_region')->nullable();
             $table->string('url', 255);
             $table->longText('description');
+            $table->integer('salary')->nullable();
+            $table->string('experience_level');
+            $table->string('education_level');
             $table->string('uploaded_by')->nullable();/* Who uploaded his/her email */
             $table->boolean('status')->nullable();
             $table->timestamps();

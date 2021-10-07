@@ -46,9 +46,8 @@ class LearningPortalFactory extends Factory
         ];
 
         return [
-            'thumbnail' => env('APP_URL').'/uploads/pictures/blog/sample-'.rand(1, 10).'jpg',
+            'thumbnail' => env('APP_URL').'/uploads/pictures/blog/sample-'.rand(1, 10).'.jpg',
             'title' => $this->faker->sentence(),
-            'slug' => preg_replace('/\s+/', '-', $this->faker->sentence()).'-'.Str::random(10),
             'category' => $category[rand(0, 11)],
             'url' => $url[rand(0, 4)],
             'status' => true,

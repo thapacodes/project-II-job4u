@@ -26,7 +26,7 @@
                         @endphp
                         <h2 class="display-5 fw-700 text-white">{{ $job_count }}</h2>
                         <p class="fs-20 text-white fs-500 m-0 mt-2 mb-3">jobs posted</p>
-                        <a class="btn btn-lg btn-danger" href="{{ env('APP_URL') }}/post-a-job">Post a job for
+                        <a class="btn btn-lg btn-danger rounded-0" href="{{ env('APP_URL') }}/post-a-job">Post a job for
                             free</a>
                     </div>
                 </div>

@@ -1,9 +1,6 @@
-<div class="container mt-5">
-    <h2 class="fw-700">{{ $category }}</h2>
-            {{-- <h2>Job Category Name</h2> --}}
+<div class="container mt-4">
             @if (count($pageArray) > 0)
                 <div class="row">
-                    <!-- Display Searched Content Here! -->
                     @foreach ($pageArray as $page)
                         <div class="col-12 my-4">
                             <a class="card rounded-0 position-relative text-decoration-none text-black"
@@ -86,7 +83,4 @@
                     </div>
                 </div>
             @endif
-            <div class="mt-5">
-                <a href="{{ env('APP_URL') }}/search?category={{ $category }}" class="btn btn-outline-danger rounded-0">More</a>
-            </div>
 </div>

@@ -10,7 +10,7 @@
             <p class="m-0 h5">
                 Job4u is a Job board in Nepal. We provide jobs mainly in the field of Technology.
             </p>
-            <a href="{{ env('APP_URL') }}/post-a-job" class="btn btn-danger btn-lg mt-4">Post a Job for Free !</a>
+            <a href="{{ env('APP_URL') }}/post-a-job" class="btn btn-danger btn-lg mt-4 rounded-0">Post a Job for Free !</a>
         </div>
     </section>
     <section>

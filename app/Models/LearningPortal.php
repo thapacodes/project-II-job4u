@@ -12,7 +12,6 @@ class LearningPortal extends Model
     protected $fillable = [
         'thumbnail',
         'title',
-        'slug',
         'category',
         'url',
         'status',

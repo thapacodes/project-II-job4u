@@ -87,7 +87,8 @@ class JobFactory extends Factory
             'Full-Time',
             'Part-Time',
             'Contract',
-            'Internship'
+            'Internship',
+            'Temporary'
         ];
 
         $fully_remote = [
@@ -124,17 +125,46 @@ class JobFactory extends Factory
             "Damak",
             "Bhadrapur"
         ];
+
+        $experience_level = [
+            'Mid Level',
+            'Entry Level',
+            'Senior Level'
+        ];
+
+        $education_level = [
+            'Bachelor Data Science',
+            'Bachelor in Computer Science',
+            'BSc Computer Science and Digitisation',
+            'Bachelor in Software Engineering',
+            'Bachelor of Business Administration',
+            'Bachelor in Artificial Intelligence fo Business',
+            'Bsc (Hons) Computing',
+            'Bachelor in Telecommunication systems and computer networks',
+            'BSc in Computer Science',
+            'International Bachelor of Computer Science (IB)',
+            'Bachelor in Computer Engineering',
+            'Bachelor\'s in Applied Computer Science and Artificial Intelligence',
+            'Bachelor of Business Administration - Computer Applications (BBA)',
+            'Software Development and Entrepreneurship (Professional Higher Education)',
+            'Bachelor of Engineering in Computer Science',
+            'Bachelor in Computer Engineering',
+            'Not Needed'
+        ];
         
         return [
             'title' => $title[rand(0, 29)],
             'slug' => preg_replace('/\s+/', '-', $title[rand(0, 29)]).'-'.Str::random(10),
             'category' => $category[rand(0, 11)],
-            'type' => $type[rand(0, 3)],
+            'type' => $type[rand(0, 4)],
             'logo' => env('APP_URL').'/uploads/pictures/job/sample-'.rand(1, 10).'.jpg',
             'fully_remote' => $fully_remote[rand(0,1)],
             'work_region' => $work_region[rand(0, 26)],
             'url' => $url[rand(0, 9)],
             'description' => $this->faker->paragraph(10),
+            'salary' => rand(30000, 300000),
+            'experience_level' => $experience_level[rand(0, 2)],
+            'education_level' => $education_level[rand(0, 15)],
             'uploaded_by' => $this->faker->email(),
             'status' => true,
         ];

@@ -1,7 +1,7 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 mb-3">
                 <div class="input-group input-group-lg">
                     <span class="input-group-text rounded-0 bg-transparent" id="search_page">
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,12 +16,12 @@
                         placeholder="Search for Job titles . . .">
                 </div>
             </div>
-            <div class="col-lg-4">
-                <label for="job_category" class="form-label d-flex align-items-center m-0 mt-3 fw-500">
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                <label for="job_category" class="form-label d-flex align-items-center m-0 mt-3 fw-500 visually-hidden">
                     Job Category
                 </label>
-                <select id="job_category" wire:model="category" class="form-control form-control-lg rounded-0">
-                    <option value="">Select Job Category</option>
+                <select id="job_category" wire:model="category" class="form-control rounded-0">
+                    <option value="">Job Category</option>
                     <option value="design">Design</option>
                     <option value="full-stack-programming">Full Stack Programming</option>
                     <option value="front-end-programming">Front End Programming</option>
@@ -36,12 +36,12 @@
                     <option value="others">Others</option>
                 </select>
             </div>
-            <div class="col-lg-4">
-                <label for="job_type" class="form-label d-flex align-items-center m-0 mt-3 fw-500">
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                <label for="job_type" class="form-label d-flex align-items-center m-0 mt-3 fw-500 visually-hidden">
                     Job Type
                 </label>
-                <select id="job_type" wire:model="type" class="form-control form-control-lg rounded-0">
-                    <option value="">Select Job Type</option>
+                <select id="job_type" wire:model="type" class="form-control rounded-0">
+                    <option value="">Job Type</option>
                     <option value="Full-Time">Full-Time</option>
                     <option value="Part-Time">Part Time</option>
                     <option value="Contract">Contract</option>
@@ -49,22 +49,22 @@
                     <option value="others">Others</option>
                 </select>
             </div>
-            <div class="col-lg-4">
-                <label for="fully_remote" class="form-label d-flex align-items-center m-0 mt-3 fw-500">
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                <label for="fully_remote" class="form-label d-flex align-items-center m-0 mt-3 fw-500 visually-hidden">
                     Fully Remote
                 </label>
-                <select id="fully_remote" wire:model="fully_remote" class="form-control form-control-lg rounded-0">
-                    <option value="">choose</option>
+                <select id="fully_remote" wire:model="fully_remote" class="form-control rounded-0">
+                    <option value="">Remote Job ?</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select>
             </div>
-            {{-- <div class="col-lg-4">
-                <label for="work_region" class="form-label d-flex align-items-center m-0 mt-3 fw-500">
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                <label for="work_region" class="form-label d-flex align-items-center m-0 mt-3 fw-500 visually-hidden">
                     Work Region
                 </label>
-                <select id="work_region" wire:model="work_region" class="form-control form-control-lg rounded-0">
-                    <option value="">Select Work Region</option>
+                <select id="work_region" wire:model="work_region" class="form-control rounded-0">
+                    <option value="">Work Region</option>
                     <option value="Kathmandu">Kathmandu</option>
                     <option value="Pokhara">Pokhara</option>
                     <option value="Lalitpur">Lalitpur</option>
@@ -94,7 +94,76 @@
                     <option value="Bhadrapur">Bhadrapur</option>
                     <option value="Other">Other ( Do not specify )</option>
                 </select>
-            </div> --}}
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                <label for="education" class="form-label d-flex align-items-center m-0 mt-3 fw-500 visually-hidden">
+                    Education Level
+                </label>
+                <select id="education" wire:model="education_level" class="form-control rounded-0">
+                    <option value="">Education level</option>
+                    <option value="Bachelor Data Science">Bachelor Data Science</option>
+                    <option value="Bachelor in Computer Science">Bachelor in Computer Science</option>
+                    <option value="BSc Computer Science and DigitisationBachelor in Software Engineering">BSc Computer
+                        Science and DigitisationBachelor in Software Engineering</option>
+                    <option value="Bachelor in Software Engineering">Bachelor in Software Engineering</option>
+                    <option value="Bachelor of Business Administration">Bachelor of Business Administration</option>
+                    <option value="Bachelor in Artificial Intelligence fo Business">Bachelor in Artificial Intelligence
+                        fo Business</option>
+                    <option value="Bsc (Hons) Computing">Bsc (Hons) Computing</option>
+                    <option value="Bachelor in Telecommunication systems and computer networks">Bachelor in
+                        Telecommunication systems and computer networks</option>
+                    <option value="BSc in Computer Science">BSc in Computer Science</option>
+                    <option value="International Bachelor of Computer Science (IB)">International Bachelor of Computer
+                        Science (IB)</option>
+                    <option value="Bachelor in Computer Engineering">Bachelor in Computer Engineering</option>
+                    <option value="Bachelor\'s in Applied Computer Science and Artificial Intelligence">Bachelor's in
+                        Applied Computer Science and Artificial Intelligence</option>
+                    <option value="Bachelor of Business Administration - Computer Applications (BBA)">Bachelor of
+                        Business Administration - Computer Applications (BBA)</option>
+                    <option value="Software Development and Entrepreneurship (Professional Higher Education)">Software
+                        Development and Entrepreneurship (Professional Higher Education)</option>
+                    <option value="Bachelor of Engineering in Computer Science">Bachelor of Engineering in Computer
+                        Science</option>
+                    <option value="Bachelor in Computer Engineering">Bachelor in Computer Engineering</option>
+                    <option value="Not Required">Not Required</option>
+                </select>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                <label for="experience_level"
+                    class="form-label d-flex align-items-center m-0 mt-3 fw-500 visually-hidden">
+                    Experience Level
+                </label>
+                <select id="experience_level" wire:model="experience_level" class="form-control rounded-0">
+                    <option value="">Experience Level</option>
+                    <option value="Entry Level">Entry Level</option>
+                    <option value="Mid Level">Mid Level</option>
+                    <option value="Senior Level">Senior Level</option>
+                </select>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                <label for="salary" class="form-label d-flex align-items-center m-0 mt-3 fw-500 visually-hidden">
+                    Salary Estimate
+                </label>
+                <select id="salary" wire:model="salary" class="form-control rounded-0">
+                    <option value="">Salary Estimate</option>
+                    <option value="30000">> 30,000</option>
+                    <option value="60000">> 60,000</option>
+                    <option value="120000">> 1,20,000</option>
+                    <option value="240000">> 2,40,000</option>
+                </select>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <label for="posted_at" class="form-label d-flex align-items-center m-0 mt-3 fw-500 visually-hidden">
+                    Posted At
+                </label>
+                <select id="posted_at" wire:model="posted_at" class="form-control rounded-0">
+                    <option value="">Posted At</option>
+                    <option value="0">Last 24 hours</option>
+                    <option value="3">Last 3 days</option>
+                    <option value="7">Last 7 days</option>
+                    <option value="14">Last 14 days</option>
+                </select>
+            </div>
         </div>
         <div>
             {{-- <h2>Job Category Name</h2> --}}
@@ -103,9 +172,9 @@
                     <!-- Display Searched Content Here! -->
                     @foreach ($pageArray as $page)
                         <div class="col-12 my-4">
-                            <a class="card px-4 rounded-0 position-relative text-decoration-none text-black"
+                            <a class="card rounded-0 position-relative text-decoration-none text-black"
                                 href="{{ env('APP_URL') }}/job/{{ $page->slug }}">
-                                <div class="card-body">
+                                <div class="card-body px-4">
                                     <div class="row align-items-center">
                                         <div class="col-lg-3" style="width:130px;">
                                             <img class="border border-secondary border-2 rounded-circle"
@@ -124,16 +193,18 @@
                                             <h3 class="my-3">{{ $page->title }}</h3>
                                             <p class="m-0 text-ellipses">{{ $page->description }}</p>
                                             <div class="mt-2">
-                                                @if($page->work_region == null)
-                                                <p class="m-0">Work place ( Not specified )</p>
+                                                @if ($page->work_region == null)
+                                                    <p class="m-0">Work place ( Not specified )</p>
                                                 @else
-                                                <p class="m-0 badge rounded-pill bg-danger" title="work region">{{ $page->work_region }}</p>
+                                                    <p class="m-0 badge rounded-pill bg-danger" title="work region">
+                                                        {{ $page->work_region }}</p>
                                                 @endif
 
-                                                @if($page->fully_remote == 'no')
-                                                <p class="m-0 badge rounded-pill bg-danger">Not Remote</p>
+                                                @if ($page->fully_remote == 'no')
+                                                    <p class="m-0 badge rounded-pill bg-danger">Not Remote</p>
                                                 @else
-                                                <p class="m-0 badge rounded-pill bg-success" title="work region">Fully Remote</p>
+                                                    <p class="m-0 badge rounded-pill bg-success" title="work region">
+                                                        Fully Remote</p>
                                                 @endif
                                             </div>
                                         </div>
@@ -148,6 +219,22 @@
                                             <p class="m-0 fw-500 fs-20">
                                                 {{ $page->type }}
                                             </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer px-4">
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <p class="m-0">Posted at : <strong>{{ \Carbon\Carbon::parse($page->created_at)->format('d M Y') }}</strong></p>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <p class="m-0">Education : <strong>{{ $page->education_level }}</strong></p>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <p class="m-0">Experience : <strong>{{ $page->experience_level }}</strong></p>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <p class="m-0">Salary Estimate :<br/> <strong>Rs. {{ $page->salary }}</strong></p>
                                         </div>
                                     </div>
                                 </div>
